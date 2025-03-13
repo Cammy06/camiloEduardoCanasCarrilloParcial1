@@ -1,0 +1,38 @@
+.colordiv1{
+    background-color: rgb(58, 130, 181);
+    width: 2%;
+    width: auto;
+}
+
+.colordivnoticia{
+    background: cadetblue;
+}
+
+.colordiv2{
+    background-color: rgb(223, 179, 179);
+    
+}
+
+.divsalto{
+    background: grey;
+    height: 40%;
+    width: 100%;
+
+}
+
+.ultimodivcolor{
+    background: rgb(75, 173, 134);
+}
+
+.parrafo1color{
+    color: orange;
+}
+
+.parrafo2color{
+    color: rgb(11, 107, 54);
+}
+
+.centrarimagen{
+    text-align: center;
+}
+

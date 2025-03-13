@@ -1,0 +1,217 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Medición de servicios de datos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="js/UtilImage.js"></script>
+
+    <script>
+        // Cross-browser event handler
+        function listenToEvent(element, ev, fn) {
+            // Non IE
+            if (element.addEventListener) {
+                element.addEventListener(ev, fn, false);
+                // IE
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + ev, fn);
+            }
+        }
+
+        function handleResultData(event) {
+
+            if (event.origin !== 'https://etb.speedtestcustom.com') {
+
+                return;
+            }
+
+            // calcualte the download and upload rates
+            var download_rate = Math.round((event.data.download / 8) * 10) / 10;
+            var upload_rate = Math.round((event.data.upload / 8) * 10) / 10;
+
+            // create new date/time object at the time of the test
+            var curdate = new Date();
+
+            // update the "speed" html elemnt with the results of the test
+            var speed = document.getElementById('speed');
+            if (speed) {
+
+                speed.innerHTML = "<br/>Fecha de última medición<br/>" + curdate.toLocaleString() + "<br/>";
+            }
+
+        }
+        listenToEvent(window, 'message', handleResultData);
+
+    </script>
+    <link href="css/carolbox.css" rel="stylesheet" type="text/css" />
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TDKHGJC');
+
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+        function handleOutboundLinkClicks(event) {
+            ga('send', 'event', {
+                eventCategory: 'Medidor descarga',
+                eventAction: 'click',
+                eventLabel: event.target.href
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDKHGJC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="row">
+        <div id="container">
+            <div class="top">
+                <div class="logo"><img src="img/logo-etb.png"></div>
+                <h3 class="logo-medidor">Medición de servicio de datos ETB</h3>
+            </div>
+            <div class="areabanner">
+                <a href="https://etb.com/2playfibra/?utm_source=webmedidor&utm_medium=organic&utm_campaign=h_duo_f&bnv=b0" target="_blank">
+                    <img class="bnor" src="img/banner.webp">
+                    <img class="bres" src="img/bannerM.webp">
+                </a>
+            </div>
+
+            <div class="cont-menu_medi">
+
+                <div class="menu">
+                    <div class="linksmedi">
+                        <div class="lmleft">
+                            <a href="https://www.speedtest.net/run" target="_blank">Iniciar Test</a>
+                        </div>
+                    </div>
+
+                    <nav>
+                        <a class="pop3">Recomendaciones</a>
+                        <a class="pop8">Preguntas frecuentes</a>
+                    </nav>
+
+                    <div class="linksmedi">
+                        <div class="lmright">
+                            <h3>¡Mide la velocidad de tu internet desde tu celular! Descarga la app</h3>
+                            <a href="https://itunes.apple.com/app/speedtest-net-mobile-speed/id300704847?mt=8" target="_blank"><img src="img/ios-app.png"></a>
+                            <a href="https://play.google.com/store/apps/details?id=org.zwanoo.android.speedtest" target="_blank"><img src="img/andriod-app.png"></a>
+                            <a href="https://www.microsoft.com/es-es/store/p/speedtestnet/9wzdncrfj1wg" target="_blank"><img src="img/windows-app.png"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-content">
+                    <div class="maincont">
+						<h2>Si tú plan es igual o mayor a 100MB descarga la app SpeedTest de Ookla <a href="https://www.speedtest.net/apps/windows" target="_blank">aquí.</a></h2>
+                        <img class="imgpop" src="./img/popupMed.png" />
+                    </div>
+
+                    <div id="3box" class="popup">
+
+                        <div class="text-box" style="overflow:scroll; height:522px; overflow-x: hidden">
+                            <div class="cerrar">
+                                <a style="border-radius:4px 0 0 4px" class="pop3">X</a>
+                            </div>
+                            <img src="img/icon-recomendaciones.png" width="100" height="100">
+                            <h1>RECOMENDACIONES ANTES DE INICIAR EL MEDIDOR</h1>
+                            <p>
+                                Antes de realizar la medición es muy importante tener en cuenta las siguientes recomendaciones para obtener una correcta medida de tu velocidad:
+                                <br><br>
+                                • Evita usar el acceso a internet mientras realizas la medición.<br>
+                                • Cierra todas las aplicaciones.<br>
+                                • Asegúrate de tener conectado a internet solo el dispositivo con el cual estés haciendo la medición.<br>
+                                • Realiza la medición con un PC conectado directamente al modem por cable.<br>
+								• Realizar la medición usando el servidor escogido automáticamente por SpeedTest.
+                                <!-- <br><br> -->
+                                <!-- Para que la prueba de Speedtest realizada, pueda medir todo el ancho de banda disponible en la conexión, recomendamos que el usuario realice la prueba SIN seleccionar un servidor en particular ("Change Server"). -->
+                                <!-- <br> -->
+                                <!-- Esto, para que la prueba pueda ser realizada utilizando la capacidad de descarga desde 4 servidores de forma simultánea, y así garantizar que realmente pueda medirse toda la capacidad (ancho de banda) disponible. -->
+                                <!-- <br> -->
+                                <!-- De esta forma, la prueba realizada en www.speedtest.net arrojará un resultado más fidedigno de la experiencia real del usuario con el servicio contratado. -->
+                                <!-- <br><br> -->
+                                <!-- A continuación se relacionan dos ejemplos que ilustran lo mencionado: -->
+                                <!-- <br><br> -->
+                                <!-- <span style="font-weight: 900">Botón para la selección de un servidor en particular ("Change Server"):</span> -->
+                                <!-- <br><br> -->
+                                <!-- Al habilitar esta opción, la prueba se realizará usando únicamente al servidor seleccionado manualmente, por lo que los beneficios provistos de la función Múltiples servidores no se obtendrán. Este resultado no es considerado para las visualizaciones del SPEEDTEST Intelligence, pero si estará disponible en la data cruda del portal. -->
+                                <!-- <br> -->
+                                <!-- <img class="imgrecom" src="img/ejem1.png" /> -->
+                                <!-- <br> -->
+                                <!-- <span style="font-weight: 900">Al realizar la prueba SIN seleccionar a un servidor en particular ("automatic test"): -->
+                                <!-- </span> -->
+                                <!-- <br><br> -->
+                                <!-- Cuando el usuario realiza la prueba sin modificar ningún parámetro, entonces la función de múltiples servidores es aprovechada y se puede ver el nombre del servidor con mejor performance + 3 more. -->
+                                <!-- <br> -->
+                                <!-- <img class="imgrecom" src="img/ejem2.png" /> -->
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="8box" class="popup">
+                        <div class="text-box" style="overflow:scroll; height:522px; overflow-x: hidden">
+                            <div class="cerrar"><a style="border-radius:4px 0 0 4px" class="pop8">X</a></div>
+                            <img src="img/icon-pregunta.png" width="100" height="100">
+                            <h1>PREGUNTAS FRECUENTES</h1>
+                            <ul>
+                                <li>
+                                    <h1>¿Cuál es la diferencia entre velocidad de bajada y subida (download / upload)?</h1><br>
+                                    La velocidad de bajada" o "download", se refiere a la rapidez con que los datos viajan desde Internet hacia tu dispositivo. La velocidad de subida o "upload", se refiere a la rapidez con que los datos viajan desde tu dispositivo hacia el resto de Internet.
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <h1>¿Cómo puedo mejorar la conexión a internet?</h1><br>
+                                    La conexión a internet mejora cuando los dispositivos se conectan de forma alámbrica a la ONT / CPE / MÓDEM de ETB. Para optimizar el uso de la conexión a Internet consulta <a style="color: #008fbe;" target="_blank" href="https://etb.com/mejorainternet/">https://etb.com/mejorainternet/</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $(".button-menu").on('click', function(e) {
+                e.preventDefault();
+                $(".menu").toggleClass("menu-open");
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
